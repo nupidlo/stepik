@@ -11,6 +11,7 @@ while True:
 	if pid == 0:
 		data = conn.recv(1024)
 		if not data or data == 'close':
+			conn.close()
 			break
 		conn.send(data)
 	conn.close()
