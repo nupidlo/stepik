@@ -10,7 +10,7 @@ while True:
 	pid = os.fork()
 	if pid == 0:
 		data = conn.recv(1024)
-		if not data or data = 'close':
+		if not data or data == 'close':
 			break
 		conn.send(data)
 	conn.close()
