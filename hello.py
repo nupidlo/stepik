@@ -7,7 +7,11 @@ def app(environ, start_response):
 	start_response(status, headers)
 	return resp
 
-#import multiprocessing
 
-#bind = "0.0.0.0:8000"
-#workers = multiprocessing.cpu_count() * 2 + 1
+import multiprocessing
+
+bind = "0.0.0.0:8000"
+workers = multiprocessing.cpu_count() * 2 + 1
+pythonpath = '/home/box/web'
+errorlog = '/home/box/web/gerr.txt'
+accesslog = '/home/box/web/gacc.txt'
