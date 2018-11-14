@@ -3,6 +3,11 @@ def app(environ, start_response):
 	headers = [
 		('Content-Type', 'text/plain')
 	]
-	resp = environ['QUERY_STRING'].split('&')
+	resp = [bytes(i + '\n', 'ascii') for i in environ['QUERY_STRING'].split('&')]
 	start_response(status, headers)
-	return ["\n".join(resp)]
+	return resp
+
+#import multiprocessing
+
+#bind = "0.0.0.0:8000"
+#workers = multiprocessing.cpu_count() * 2 + 1
